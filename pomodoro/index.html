@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>25:00 - Pomodoro taimer</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>Pomodoro taimer</h3>
+      <h1 id="timeDisplay">25:00</h1>
+      <button onclick="start()">Alusta</button>
+      <button onclick="stop()">Lõpeta</button>
+      <hr />
+      <button class="btn" onclick="init(TIME)">Töö</button>
+      <button class="btn" onclick="init(SHORT_BREAK)">Lühike paus</button>
+      <button class="btn" onclick="init(LONG_BREAK)">Pikk paus</button>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
