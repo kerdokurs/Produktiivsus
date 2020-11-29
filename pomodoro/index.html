@@ -14,14 +14,14 @@
   <body>
     <div id="app">
       <h3>Pomodoro taimer</h3>
-      <h1></h1>
-      <button>Alusta</button>
-      <button>Lõpeta</button>
+      <h1 id="timeDisplay">25:00</h1>
+      <button onclick="start()">Alusta</button>
+      <button onclick="stop()">Lõpeta</button>
+      <hr />
+      <button class="btn" onclick="init(TIME)">Töö</button>
+      <button class="btn" onclick="init(SHORT_BREAK)">Lühike paus</button>
+      <button class="btn" onclick="init(LONG_BREAK)">Pikk paus</button>
     </div>
+    <script src="./app.js"></script>
   </body>
-  <script>
-    const TIME = 1500;
-    const SHORT_BREAK = 300;
-    const LONG_BREAK = 600;
-  </script>
 </html>
