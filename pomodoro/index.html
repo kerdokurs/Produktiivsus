@@ -5,25 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
-    <title>Pomodoro äpp</title>
+    <title>25:00 - Pomodoro taimer</title>
   </head>
   <body>
     <div id="app">
-      <h1>Pomodoro äpp</h1>
+      <h3>Pomodoro taimer</h3>
+      <h1></h1>
+      <button>Alusta</button>
+      <button>Lõpeta</button>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
-    const vue = new Vue({
-      el: '#app',
-      data: {
-        todos: [],
-      },
-      methods: {},
-    });
+    const TIME = 1500;
+    const SHORT_BREAK = 300;
+    const LONG_BREAK = 600;
   </script>
 </html>
