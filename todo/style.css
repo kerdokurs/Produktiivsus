@@ -14,7 +14,6 @@
 }
 
 html {
-  background: linear-gradient(45deg, #ff55ff, #0c0599) no-repeat;
   min-height: 100vh;
 }
 
@@ -84,7 +83,7 @@ html {
 }
 
 #app #todos .todo.done {
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
 #app #todos .todo.done p {
