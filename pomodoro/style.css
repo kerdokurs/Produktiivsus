@@ -12,7 +12,7 @@ html {
 }
 
 #app {
-  margin: 10em;
+  margin: 10em auto;
   width: 90%;
   text-align: center;
 }
