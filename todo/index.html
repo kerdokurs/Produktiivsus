@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Todo äpp</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 id="title">Todo äpp</h1>
+
+      <div id="newTodo">
+        <input type="text" name="todoTitle" id="todoTitle" placeholder="Todo" />
+        <button onclick="todoApp.addTodo()">Lisa todo</button>
+        <!-- <button onclick="todoApp.clearTodos()">Tühjenda todod</button> -->
+      </div>
+
+      <div id="todos"></div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
