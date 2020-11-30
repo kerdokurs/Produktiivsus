@@ -8,8 +8,7 @@
 }
 
 html {
-  background: linear-gradient(45deg, #ff55ff, #0c0599) no-repeat;
-  min-height: 100vh;
+ min-height: 100vh;
 }
 
 #app {
