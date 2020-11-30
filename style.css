@@ -13,6 +13,7 @@ body {
   font-size: 1.25em;
   color: #fff;
   line-height: 1.5;
+  text-shadow: 2px 2px 2px #000;
 }
 html {
   min-height: 100vh;
@@ -20,7 +21,7 @@ html {
 #app ul {
   list-style-type: none;
   margin-top: 90px;
-  color: rgb(253, 253, 253);
+  color: #fdfdfd;
 }
 li {
   display: inline;
