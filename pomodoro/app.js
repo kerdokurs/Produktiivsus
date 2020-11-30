@@ -1,75 +1,86 @@
-const TIME = 1500;
+// Defineerime erinevate etappide ajad
+const TIME = 5;
 const SHORT_BREAK = 300;
 const LONG_BREAK = 600;
 
+// Võtame DOM-ist vajalikud elemendid
 const timeDisplay = document.querySelector('#timeDisplay');
 
 const startButton = document.querySelector('#startButton');
 const stopButton = document.querySelector('#stopButton');
 const resetButton = document.querySelector('#resetButton');
 
-let remainingTime = TIME;
-let started = false;
-let intervalId = undefined;
-let lastChoice = undefined;
-
-function init(time = TIME) {
-  stop();
-
-  remainingTime = time;
-  lastChoice = time;
-
-  updateUI();
-}
-
-function start() {
-  if (started) return;
-
-  started = true;
-
-  stopButton.disabled = false;
-  startButton.disabled = true;
-
-  intervalId = setInterval(tick, 1000);
-}
-
-function stop() {
-  if (!started) return;
-
-  clearInterval(intervalId);
-  intervalId = undefined;
-
-  stopButton.disabled = true;
-  startButton.disabled = false;
-
-  started = false;
-}
-
-function reset() {
+class PomodoroApp {
   remainingTime = TIME;
-  init(lastChoice);
+  started = false;
+  intervalId = undefined;
+  lastChoice = undefined;
+
+  constructor() {
+    this.init();
+  }
+
+  init(time = TIME) {
+    this.stop();
+
+    this.remainingTime = time;
+    this.lastChoice = time;
+
+    this.updateUI();
+  }
+
+  start() {
+    if (this.started) return;
+
+    this.started = true;
+
+    stopButton.disabled = false;
+    startButton.disabled = true;
+
+    this.intervalId = setInterval(this.tick.bind(this), 1000);
+  }
+
+  stop() {
+    if (!this.started) return;
+
+    clearInterval(this.intervalId);
+    this.intervalId = undefined;
+
+    stopButton.disabled = true;
+    startButton.disabled = false;
+
+    this.started = false;
+  }
+
+  reset() {
+    this.init(this.lastChoice);
+  }
+
+  tick() {
+    this.remainingTime -= 1;
+
+    this.updateUI();
+
+    if (this.remainingTime === 0) this.stop();
+  }
+
+  updateUI() {
+    const formattedRemainingTime = this.formatRemainingTime();
+
+    timeDisplay.textContent = formattedRemainingTime;
+    document.title = `${formattedRemainingTime} - Pomodoro taimer`;
+  }
+
+  formatRemainingTime() {
+    const mins = this.formatZeroes(Math.floor(this.remainingTime / 60));
+    const secs = this.formatZeroes(this.remainingTime - mins * 60);
+
+    return `${mins}:${secs}`;
+  }
+
+  formatZeroes(number, len = 2) {
+    return String(number).padStart(len, '0');
+  }
 }
 
-function tick() {
-  remainingTime -= 1;
-
-  updateUI();
-}
-
-function updateUI() {
-  timeDisplay.textContent = formatRemainingTime();
-  document.title = `${formatRemainingTime()} - Pomodoro taimer`;
-}
-
-function formatRemainingTime() {
-  const mins = formatZeroes(Math.floor(remainingTime / 60));
-  const secs = formatZeroes(remainingTime - mins * 60);
-
-  return `${mins}:${secs}`;
-}
-
-function formatZeroes(number, len = 2) {
-  return String(number).padStart(len, '0');
-}
-
-(() => init)();
+const pomodoroApp = new PomodoroApp();

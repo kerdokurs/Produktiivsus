@@ -38,25 +38,16 @@ html {
   transition-duration: 0.4s;
   border: none;
   line-height: 1.6;
-<<<<<<< HEAD
-  margin-top: 7px;
-  margin-left: 0.5px;
- }
-#app button:hover{
-  background-color: rgb(255, 255, 255);
-  color: black;
-  border:none;
 }
-=======
-}
+
 #app button:hover {
   background-color: rgb(255, 255, 255);
   color: black;
   border: none;
 }
+
 @media (min-width: 750px) {
   #app {
     width: 70%;
   }
 }
->>>>>>> 01100153026190fc39bb07a87533d60c82cea312
