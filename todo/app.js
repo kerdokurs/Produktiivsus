@@ -5,14 +5,10 @@ const todoTitle = document.querySelector('#todoTitle');
 
 let todos = [];
 
-/* const todoSorter = (t1, t2) =>
-  t1.done && t2.done
-    ? t1.createdAt - t2.createdAt
-    : t1.done && !t2.done
-    ? 1
-    : -1; */
+const todoSorter = (t1, t2) =>
+  t1.done && t2.done ? 0 : t1.done && !t2.done ? 1 : -1;
 
-const todoSorter = (t1, t2) => 1;
+// const todoSorter = (t1, t2) => 1;
 
 class TodoApp {
   todos = [];
@@ -192,6 +188,10 @@ class TodoApp {
 
     return `${hr}:${min}:${sec} ${day}/${mth}/${yr}`;
   }
+}
+
+function $(id) {
+  return document.getElementById(id);
 }
 
 const todoApp = new TodoApp();

@@ -38,10 +38,8 @@ html {
   width: 80%;
   margin: 2em auto;
   border-radius: 5px;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 85% 15%;
@@ -86,7 +84,7 @@ html {
 }
 
 #app #todos .todo.done {
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 #app #todos .todo.done p {
@@ -94,8 +92,8 @@ html {
 }
 
 #app #todos .todo:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 #app #newTodo {
