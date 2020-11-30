@@ -8,7 +8,6 @@
 }
 
 html {
-  background: linear-gradient(45deg, #ff55ff, #0c0599) no-repeat;
   min-height: 100vh;
 }
 
@@ -20,32 +19,30 @@ html {
 
 #app #title {
   color: rgb(255, 255, 255);
-  font-size: 3em;
+  font-size: 4em;
 }
 
 #app #timeDisplay {
   color: rgb(255, 255, 255);
-  font-size: 6em;
+  font-size: 7em;
+  margin-bottom: 30px;
 }
 
 #app button {
   color: rgb(255, 255, 255);
   padding: 5px 12px;
-  font-size: 17px;
-  background-color: rgb(195, 0, 255);
+  font-size: 20px;
+  background-color: rgb(19, 53, 15);
   border-radius: 7px;
-  box-shadow: 0 4px 8px 0 black;
+  box-shadow: 0 4px 8px 0 rgb(61, 61, 61);
   transition-duration: 0.4s;
   border: none;
   line-height: 1.6;
+  margin-top: 7px;
+  margin-left: 0.5px;
  }
 #app button:hover{
   background-color: rgb(255, 255, 255);
   color: black;
   border:none;
-}
-@media (min-width: 750px) {
-  #app {
-    width: 70%;
-  }
 }
