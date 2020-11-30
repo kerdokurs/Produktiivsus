@@ -10,6 +10,10 @@ const startButton = document.querySelector('#startButton');
 const stopButton = document.querySelector('#stopButton');
 const resetButton = document.querySelector('#resetButton');
 
+const workButton = document.querySelector('#workButton');
+const shotBreakButton = document.querySelector('#shotBreakButton');
+const longBreakButton = document.querySelector('#longBreakButton');
+
 class PomodoroApp {
   remainingTime = TIME;
   started = false;
@@ -18,6 +22,14 @@ class PomodoroApp {
 
   constructor() {
     this.init();
+
+    startButton.addEventListener('click', (e) => this.start());
+    stopButton.addEventListener('click', (e) => this.stop());
+    resetButton.addEventListener('click', (e) => this.reset());
+
+    workButton.addEventListener('click', (e) => this.init(TIME));
+    shotBreakButton.addEventListener('click', (e) => this.init(SHORT_BREAK));
+    longBreakButton.addEventListener('click', (e) => this.init(LONG_BREAK));
   }
 
   init(time = TIME) {
