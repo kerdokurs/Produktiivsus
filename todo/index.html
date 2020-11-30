@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../common.css" />
     <title>Todo äpp</title>
   </head>
   <body>
@@ -20,13 +21,22 @@
       <h1 id="title">Todo äpp</h1>
 
       <div id="newTodo">
-        <input type="text" name="todoTitle" id="todoTitle" placeholder="Todo" />
-        <button onclick="todoApp.addTodo()">Lisa todo</button>
-        <!-- <button onclick="todoApp.clearTodos()">Tühjenda todod</button> -->
+        <input
+          class="input"
+          type="text"
+          name="todoTitle"
+          id="todoTitle"
+          placeholder="Todo"
+        />
+        <button class="btn" onclick="todoApp.addTodo()">Lisa todo</button>
+        <button class="btn" onclick="todoApp.clearTodos()">
+          Tühjenda todod
+        </button>
       </div>
 
       <div id="todos"></div>
     </div>
     <script src="./app.js"></script>
+    <script src="../taust.js"></script>
   </body>
 </html>

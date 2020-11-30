@@ -4,45 +4,48 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  border:none;
+  border: none;
 }
 
 html {
- min-height: 100vh;
+  min-height: 100vh;
 }
 
 #app {
-  margin: 10em;
+  margin: 10em auto;
   width: 90%;
   text-align: center;
 }
 
 #app #title {
   color: rgb(255, 255, 255);
-  font-size: 3em;
+  font-size: 4em;
 }
 
 #app #timeDisplay {
   color: rgb(255, 255, 255);
-  font-size: 6em;
+  font-size: 7em;
+  margin-bottom: 30px;
 }
 
 #app button {
   color: rgb(255, 255, 255);
   padding: 5px 12px;
-  font-size: 17px;
-  background-color: rgb(195, 0, 255);
+  font-size: 20px;
+  background-color: rgb(19, 53, 15);
   border-radius: 7px;
-  box-shadow: 0 4px 8px 0 black;
+  box-shadow: 0 4px 8px 0 rgb(61, 61, 61);
   transition-duration: 0.4s;
   border: none;
   line-height: 1.6;
- }
-#app button:hover{
+}
+
+#app button:hover {
   background-color: rgb(255, 255, 255);
   color: black;
-  border:none;
+  border: none;
 }
+
 @media (min-width: 750px) {
   #app {
     width: 70%;
