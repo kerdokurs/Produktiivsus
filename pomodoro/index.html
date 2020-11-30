@@ -8,21 +8,33 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../common.css" />
     <link rel="stylesheet" href="./style.css" />
     <title>25:00 - Pomodoro taimer</title>
   </head>
   <body>
     <div id="app">
-      <h3 id= "title">Pomodoro taimer</h3>
+      <h3 id="title">Pomodoro taimer</h3>
       <h1 id="timeDisplay">25:00</h1>
-      <button onclick="start()" id="startButton">Alusta</button>
-      <button onclick="stop()" id="stopButton" disabled>Paus</button>
-      <button onclick="reset()" id="resetButton">Nulli</button>
+      <button class="btn" onclick="pomodoroApp.start()" id="startButton">
+        Alusta
+      </button>
+      <button class="btn" onclick="pomodoroApp.stop()" id="stopButton" disabled>
+        Paus
+      </button>
+      <button class="btn" onclick="pomodoroApp.reset()" id="resetButton">
+        Nulli
+      </button>
       <hr />
-      <button class="btn" onclick="init(TIME)">Töö</button>
-      <button class="btn" onclick="init(SHORT_BREAK)">Lühike paus</button>
-      <button class="btn" onclick="init(LONG_BREAK)">Pikk paus</button>
+      <button class="btn" onclick="pomodoroApp.init(TIME)">Töö</button>
+      <button class="btn" onclick="pomodoroApp.init(SHORT_BREAK)">
+        Lühike paus
+      </button>
+      <button class="btn" onclick="pomodoroApp.init(LONG_BREAK)">
+        Pikk paus
+      </button>
     </div>
     <script src="./app.js"></script>
+    <script src="../taust.js"></script>
   </body>
 </html>
