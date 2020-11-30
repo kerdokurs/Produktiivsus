@@ -1,21 +1,49 @@
-/*
-  See SASS fail kompileeritakse CSS failiks.
-*/
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  border:none;
+}
+
+html {
+  background: linear-gradient(45deg, #ff55ff, #0c0599) no-repeat;
+  min-height: 100vh;
 }
 
 #app {
-  margin: 40px auto;
+  margin: 10em;
   width: 90%;
   text-align: center;
-  border: 1px solid red;
 }
 
+#app #title {
+  color: rgb(255, 255, 255);
+  font-size: 3em;
+}
+
+#app #timeDisplay {
+  color: rgb(255, 255, 255);
+  font-size: 6em;
+}
+
+#app button {
+  color: rgb(255, 255, 255);
+  padding: 5px 12px;
+  font-size: 17px;
+  background-color: rgb(195, 0, 255);
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 black;
+  transition-duration: 0.4s;
+  border: none;
+  line-height: 1.6;
+ }
+#app button:hover{
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border:none;
+}
 @media (min-width: 750px) {
   #app {
     width: 70%;
