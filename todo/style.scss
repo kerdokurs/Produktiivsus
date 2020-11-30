@@ -88,15 +88,6 @@ html {
   }
 }
 
-@keyframes test {
-  0% {
-    transform: scale(0.8);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 /* >= tablet */
 @media (min-width: 750px) {
   #app {
