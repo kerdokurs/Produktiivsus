@@ -1,5 +1,5 @@
 // Defineerime erinevate etappide ajad
-const TIME = 5;
+const TIME = 1500;
 const SHORT_BREAK = 300;
 const LONG_BREAK = 600;
 
@@ -21,8 +21,13 @@ class PomodoroApp {
   }
 
   init(time = TIME) {
+    // Kui taimer käib, lõpetame töö
     this.stop();
 
+    /**
+     * Sätime taimeri tagasi üles
+     * lastChoice on väärtus, mis seadistatakse "nullides" - põhimõtteliselt viimane valik, mis tehti
+     */
     this.remainingTime = time;
     this.lastChoice = time;
 
@@ -30,22 +35,27 @@ class PomodoroApp {
   }
 
   start() {
+    // Kui on juba alustatud, ära tee midagi
     if (this.started) return;
-
     this.started = true;
 
+    // Luba stopp-nupp ja keela start-nupp
     stopButton.disabled = false;
     startButton.disabled = true;
 
+    // Seadistame tick meetodile 1-sekundise intervalli, mille ID salvestame, et pärast see tühistada
     this.intervalId = setInterval(this.tick.bind(this), 1000);
   }
 
   stop() {
+    // Kui pole alustatud, ära tee midagi
     if (!this.started) return;
 
+    // Tühistab IDga, mille eelnevalt seadistas, intervalli ja paneb selle igaks juhuks defineerimata olekusse
     clearInterval(this.intervalId);
     this.intervalId = undefined;
 
+    // Lubab start-nupu, keelab stop-nupu
     stopButton.disabled = true;
     startButton.disabled = false;
 
@@ -53,25 +63,32 @@ class PomodoroApp {
   }
 
   reset() {
+    // Nullime viimase valikuga
     this.init(this.lastChoice);
   }
 
   tick() {
+    // Iga käiguga eemaldame taimerist 1 sekundi
     this.remainingTime -= 1;
 
+    // Uuendame kasutajaliidest
     this.updateUI();
 
+    // Kui jõuame sekunditega nulli, lõpetame töö
     if (this.remainingTime === 0) this.stop();
   }
 
   updateUI() {
+    // Kujundame jäänud aja
     const formattedRemainingTime = this.formatRemainingTime();
 
+    // Paneme järelejäänud aja kasutajaliidesesse ja ka aknatiitlisse
     timeDisplay.textContent = formattedRemainingTime;
     document.title = `${formattedRemainingTime} - Pomodoro taimer`;
   }
 
   formatRemainingTime() {
+    // Lihtne valem sekundite minutiteks ja sekunditeks tegemiseks
     const mins = this.formatZeroes(Math.floor(this.remainingTime / 60));
     const secs = this.formatZeroes(this.remainingTime - mins * 60);
 
@@ -79,8 +96,10 @@ class PomodoroApp {
   }
 
   formatZeroes(number, len = 2) {
+    // Kujundame nullid nii, et ühekohalised numbrid algaksid nulliga
     return String(number).padStart(len, '0');
   }
 }
 
+// Loome uue PomodoroApp-i, et loogikat kasutada
 const pomodoroApp = new PomodoroApp();
