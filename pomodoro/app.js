@@ -2,7 +2,11 @@ const TIME = 1500;
 const SHORT_BREAK = 300;
 const LONG_BREAK = 600;
 
-let timeDisplay = document.querySelector('#timeDisplay');
+const timeDisplay = document.querySelector('#timeDisplay');
+
+const startButton = document.querySelector('#startButton');
+const stopButton = document.querySelector('#stopButton');
+const resetButton = document.querySelector('#resetButton');
 
 let remainingTime = TIME;
 let started = false;
@@ -13,7 +17,6 @@ function init(time = TIME) {
   stop();
 
   remainingTime = time;
-
   lastChoice = time;
 
   updateUI();
@@ -24,6 +27,9 @@ function start() {
 
   started = true;
 
+  stopButton.disabled = false;
+  startButton.disabled = true;
+
   intervalId = setInterval(tick, 1000);
 }
 
@@ -33,13 +39,14 @@ function stop() {
   clearInterval(intervalId);
   intervalId = undefined;
 
-  started = false;
-  remainingTime = TIME;
+  stopButton.disabled = true;
+  startButton.disabled = false;
 
-  reset();
+  started = false;
 }
 
 function reset() {
+  remainingTime = TIME;
   init(lastChoice);
 }
 
