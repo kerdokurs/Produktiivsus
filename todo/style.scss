@@ -2,9 +2,6 @@
   See SASS fail kompileeritakse tavaliseks CSS failiks.
 */
 
-$gradient-from: #ff55ff;
-$gradient-to: #0c0599;
-
 * {
   margin: 0;
   padding: 0;
@@ -62,12 +59,12 @@ html {
           height: 24px;
           display: block;
           cursor: pointer;
-          color: $gradient-from;
+          color: #000;
 
-          transition: color 0.2s;
+          transition: color 0.2s ease-in-out, transform 0.25s ease-in-out;
 
           &:hover {
-            color: $gradient-to;
+            transform: scale(1.25);
           }
         }
       }
@@ -112,4 +109,9 @@ html {
   #app {
     width: 60%;
   }
+}
+
+#title {
+  font-size: 3.5em;
+  font-weight: normal;
 }

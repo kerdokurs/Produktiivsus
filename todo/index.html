@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono&display=swap"
       rel="stylesheet"
     />
     <link
@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../common.css" />
     <title>Todo äpp</title>
   </head>
   <body>
@@ -20,9 +21,17 @@
       <h1 id="title">Todo äpp</h1>
 
       <div id="newTodo">
-        <input type="text" name="todoTitle" id="todoTitle" placeholder="Todo" />
-        <button onclick="todoApp.addTodo()">Lisa todo</button>
-        <!-- <button onclick="todoApp.clearTodos()">Tühjenda todod</button> -->
+        <input
+          class="input"
+          type="text"
+          name="todoTitle"
+          id="todoTitle"
+          placeholder="Todo"
+        />
+        <button class="btn" onclick="todoApp.addTodo()">Lisa todo</button>
+        <button class="btn" onclick="todoApp.clearTodos()">
+          Tühjenda todod
+        </button>
       </div>
 
       <div id="todos"></div>

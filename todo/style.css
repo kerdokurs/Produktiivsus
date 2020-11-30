@@ -73,13 +73,16 @@ html {
   height: 24px;
   display: block;
   cursor: pointer;
-  color: #ff55ff;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
+  color: #000;
+  -webkit-transition: color 0.2s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  transition: color 0.2s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  transition: color 0.2s ease-in-out, transform 0.25s ease-in-out;
+  transition: color 0.2s ease-in-out, transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
 }
 
 #app #todos .todo #actionsDiv .action:hover {
-  color: #0c0599;
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
 }
 
 #app #todos .todo.done {
@@ -133,4 +136,9 @@ html {
   #app {
     width: 60%;
   }
+}
+
+#title {
+  font-size: 3.5em;
+  font-weight: normal;
 }
