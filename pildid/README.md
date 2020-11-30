@@ -1,3 +1,4 @@
 # Piltide viited
 
-https://pixabay.com/vectors/mountains-panorama-forest-mountain-1412683/
+https://pixabay.com/photos/landscape-autumn-fog-village-615429/
+https://pixabay.com/photos/forest-mist-nature-trees-mystic-931706/
