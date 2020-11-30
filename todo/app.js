@@ -89,7 +89,7 @@ class TodoApp {
     markDoneButton.onclick = () => this.toggleTodoDone(id);
     markDoneButton.innerHTML = `
       <i class="material-icons" id="${id}-mdi">${
-      done ? 'done' : 'done_outline'
+      done ? 'done' : 'horizontal_rule'
     }</i>
     `;
 
@@ -137,7 +137,7 @@ class TodoApp {
     this.saveTodos();
 
     document.getElementById(`${id}-mdi`).innerHTML = `${
-      currentTodo.done ? 'done' : 'done_outline'
+      currentTodo.done ? 'done' : 'horizontal_rule'
     }`;
     const classList = document.getElementById(`${id}`).classList;
 
