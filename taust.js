@@ -1,4 +1,4 @@
-const TAUSTADE_ARV = 3;
+const TAUSTADE_ARV = 5;
 
 (() => {
   const htmlDom = document.documentElement;
