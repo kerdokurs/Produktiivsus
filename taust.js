@@ -5,6 +5,6 @@ const TAUSTADE_ARV = 5;
 
   const idx = Math.floor(Math.random() * TAUSTADE_ARV);
 
-  htmlDom.style.background = `url(../pildid/taust${idx}.jpg) no-repeat center fixed`;
+  htmlDom.style.background = `url(/~kerdo/produktiivsus/pildid/taust${idx}.jpg) no-repeat center fixed`;
   htmlDom.style.backgroundSize = 'cover';
 })();

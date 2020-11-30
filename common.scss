@@ -2,6 +2,11 @@
   See SASS fail kompileeritakse tavaliseks CSS failiks.
 */
 
+h1,
+h3 {
+  text-shadow: 2px 2px 2px #000;
+}
+
 .btn {
   border: none;
   background-color: #fff;
