@@ -8,6 +8,9 @@ const storage = window.localStorage;
 const todosList = document.querySelector('#todos');
 const todoTitle = document.querySelector('#todoTitle');
 
+const addTodoButton = document.querySelector('#addTodoButton');
+const clearTodosButton = document.querySelector('#clearTodosButton');
+
 /**
  * Todode sortimise predikaat
  * Hetkel on sorteerimine vaid lehe laadimisel, muidu
@@ -33,6 +36,10 @@ class TodoApp {
         this.addTodo();
       }
     });
+
+    // Lisame nuppudele vajutamisel jooksutatavad funktsioonid kuna kodu.ut.ee ei lae javascripti õigesti ning HTML-ist ei saa näiteks pomodoro.addTodo() kutsuda.
+    addTodoButton.addEventListener('click', this.addTodo.bind(this));
+    clearTodosButton.addEventListener('click', this.clearTodos.bind(this));
   }
 
   initUI() {

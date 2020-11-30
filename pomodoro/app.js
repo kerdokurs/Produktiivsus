@@ -23,9 +23,10 @@ class PomodoroApp {
   constructor() {
     this.init();
 
-    startButton.addEventListener('click', (e) => this.start());
-    stopButton.addEventListener('click', (e) => this.stop());
-    resetButton.addEventListener('click', (e) => this.reset());
+    // Nuppude vajutamisfunktsioonid
+    startButton.addEventListener('click', this.start.bind(this));
+    stopButton.addEventListener('click', this.stop.bind(this));
+    resetButton.addEventListener('click', this.reset.bind(this));
 
     workButton.addEventListener('click', (e) => this.init(TIME));
     shotBreakButton.addEventListener('click', (e) => this.init(SHORT_BREAK));
