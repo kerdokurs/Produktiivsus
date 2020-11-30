@@ -140,10 +140,10 @@ class TodoApp {
 
     this.saveTodos();
 
-    document.querySelector(`#${id}-mdi`).innerHTML = `${
+    document.getElementById(`${id}-mdi`).innerHTML = `${
       currentTodo.done ? 'done' : 'done_outline'
     }`;
-    const classList = document.querySelector(`#${id}`).classList;
+    const classList = document.getElementById(`${id}`).classList;
 
     if (currentTodo.done) classList.add('done');
     else classList.remove('done');
