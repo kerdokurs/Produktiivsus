@@ -6,9 +6,134 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .done {
   background-color: green;
+}
+
+html {
+  background: linear-gradient(45deg, #ff55ff, #0c0599) no-repeat;
+  min-height: 100vh;
+}
+
+#app {
+  width: 95%;
+  margin: 5em auto;
+  text-align: center;
+}
+
+#app #title {
+  color: #fff;
+}
+
+#app #todos {
+  width: 100%;
+}
+
+#app #todos .todo {
+  background-color: #fff;
+  padding: 2em;
+  width: 80%;
+  margin: 2em auto;
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 85% 15%;
+      grid-template-columns: 85% 15%;
+}
+
+#app #todos .todo p {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+#app #todos .todo #actionsDiv {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+#app #todos .todo #actionsDiv .action {
+  margin: 0 4px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  cursor: pointer;
+  color: #ff55ff;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+#app #todos .todo #actionsDiv .action:hover {
+  color: #0c0599;
+}
+
+#app #todos .todo.done {
+  opacity: 0.7;
+}
+
+#app #todos .todo.done p {
+  text-decoration: line-through;
+}
+
+#app #todos .todo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#app #newTodo {
+  margin-top: 2em;
+}
+
+@-webkit-keyframes test {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes test {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+/* >= tablet */
+@media (min-width: 750px) {
+  #app {
+    width: 75%;
+  }
+}
+
+/* >= desktop */
+@media (min-width: 1000px) {
+  #app {
+    width: 60%;
+  }
 }

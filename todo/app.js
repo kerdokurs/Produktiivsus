@@ -5,6 +5,15 @@ const todoTitle = document.querySelector('#todoTitle');
 
 let todos = [];
 
+/* const todoSorter = (t1, t2) =>
+  t1.done && t2.done
+    ? t1.createdAt - t2.createdAt
+    : t1.done && !t2.done
+    ? 1
+    : -1; */
+
+const todoSorter = (t1, t2) => 1;
+
 class TodoApp {
   todos = [];
 
@@ -24,34 +33,7 @@ class TodoApp {
     todosList.innerHTML = '';
 
     for (const todo of this.todos) {
-      const { id, title, createdAt, done } = todo;
-
-      const div = document.createElement('div');
-      div.id = id;
-      if (done) div.classList.add('done');
-
-      const p = document.createElement('p');
-      p.id = `${id}-p`;
-      p.textContent = title;
-
-      const button = document.createElement('button');
-      button.onclick = () => this.deleteTodo(id);
-      button.textContent = '-';
-
-      const button1 = document.createElement('button');
-      button1.onclick = () => this.toggleTodoDone(id);
-      button1.textContent = done ? 'v' : '^';
-
-      const span = document.createElement('span');
-      span.id = `${id}-span`;
-      span.innerText = createdAt;
-
-      div.appendChild(p);
-      div.appendChild(button);
-      div.appendChild(button1);
-      div.appendChild(span);
-
-      todosList.appendChild(div);
+      this.addTodoToUI(todo);
     }
   }
 
@@ -59,11 +41,8 @@ class TodoApp {
     const todoIds = JSON.parse(storage.getItem('todos'));
     if (!todoIds) return;
 
-    this.todos = todoIds
-      .map((id) => JSON.parse(storage.getItem(id)))
-      .sort((t1, t2) =>
-        t1.done && t2.done ? 0 : t1.done && !t2.done ? 1 : -1
-      );
+    this.todos = todoIds.map((id) => JSON.parse(storage.getItem(id)));
+    this.sortTodos();
   }
 
   addTodo() {
@@ -82,31 +61,92 @@ class TodoApp {
     };
 
     this.todos.push(todoObj);
+    this.sortTodos();
 
-    storage.setItem(id, JSON.stringify(todoObj));
     this.saveTodos();
+    this.addTodoToUI(todoObj);
+  }
 
-    this.updateUI();
+  addTodoToUI(todo) {
+    const { id, title, createdAt, done } = todo;
+
+    const div = document.createElement('div');
+    div.id = id;
+    div.classList.add('todo');
+
+    if (done) div.classList.add('done');
+
+    const p = document.createElement('p');
+    p.id = `${id}-p`;
+    p.textContent = title;
+
+    const actionsDiv = document.createElement('div');
+    actionsDiv.id = 'actionsDiv';
+
+    const deleteButton = document.createElement('span');
+    deleteButton.classList.add('action');
+    deleteButton.onclick = () => this.deleteTodo(id);
+    deleteButton.innerHTML = '<i class="material-icons">delete</i>';
+
+    const markDoneButton = document.createElement('span');
+    markDoneButton.classList.add('action');
+    markDoneButton.onclick = () => this.toggleTodoDone(id);
+    markDoneButton.innerHTML = `
+      <i class="material-icons" id="${id}-mdi">${
+      done ? 'done' : 'done_outline'
+    }</i>
+    `;
+
+    actionsDiv.appendChild(deleteButton);
+    actionsDiv.appendChild(markDoneButton);
+
+    /* const span = document.createElement('span');
+    span.id = `${id}-span`;
+    span.innerText = this.formatDate(createdAt); */
+
+    div.appendChild(p);
+    div.appendChild(actionsDiv);
+    // div.appendChild(span);
+
+    todosList.appendChild(div);
+  }
+
+  removeTodoFromUI(id) {
+    for (const child of todosList.children) {
+      if (child.id === id) {
+        todosList.removeChild(child);
+      }
+    }
   }
 
   deleteTodo(id) {
-    console.log(id);
     this.todos = this.todos.filter((todo) => todo.id !== id);
+    this.sortTodos();
 
     storage.removeItem(id);
     this.saveTodos();
 
-    this.updateUI();
+    this.removeTodoFromUI(id);
   }
 
   toggleTodoDone(id) {
+    const currentTodo = this.todos.find((todo) => todo.id === id);
+    if (!currentTodo) return;
+
     this.todos = this.todos.map((todo) => {
       if (todo.id === id) todo.done = !todo.done;
       return todo;
     });
 
     this.saveTodos();
-    this.updateUI();
+
+    document.querySelector(`#${id}-mdi`).innerHTML = `${
+      currentTodo.done ? 'done' : 'done_outline'
+    }`;
+    const classList = document.querySelector(`#${id}`).classList;
+
+    if (currentTodo.done) classList.add('done');
+    else classList.remove('done');
   }
 
   saveTodos() {
@@ -114,6 +154,10 @@ class TodoApp {
       storage.setItem(todo.id, JSON.stringify(todo));
     });
     storage.setItem('todos', JSON.stringify(this.todos.map((todo) => todo.id)));
+  }
+
+  sortTodos() {
+    this.todos = this.todos.sort(todoSorter);
   }
 
   clearTodos() {
@@ -133,6 +177,20 @@ class TodoApp {
     }
 
     return str;
+  }
+
+  formatDate(date) {
+    date = new Date(date);
+
+    const yr = date.getFullYear().toString().substring(2);
+    const mth = date.getMonth() + 1;
+    const day = date.getDate();
+
+    const hr = String(date.getHours()).padStart(2, '0');
+    const min = String(date.getMinutes()).padStart(2, '0');
+    const sec = String(date.getSeconds()).padStart(2, '0');
+
+    return `${hr}:${min}:${sec} ${day}/${mth}/${yr}`;
   }
 }
 
