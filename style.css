@@ -23,6 +23,10 @@ html {
   margin-top: 90px;
   color: #fdfdfd;
 }
+#app > p {
+  width: 70%;
+  margin: 0 auto;
+}
 li {
   display: inline;
   padding: 12px 20px;
